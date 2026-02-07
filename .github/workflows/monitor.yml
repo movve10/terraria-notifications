@@ -21,4 +21,3 @@ jobs:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
           python check_players.py
-        working-directory: ./  # Adjust if check_players.py is in a subdirectory
