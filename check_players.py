@@ -2,6 +2,7 @@ import socket
 import json
 import os
 import urllib.request
+from datetime import datetime
 
 SERVER_IP = "79.127.167.234"
 SERVER_PORT = 11317  # change if needed
@@ -33,7 +34,7 @@ def save_last_count(count):
 
 def notify():
     payload = json.dumps({
-        "content": "A player just joined the Terraria server"
+        "content": f"A player joined at {datetime.utcnow()} UTC"
     }).encode("utf-8")
 
     req = urllib.request.Request(
@@ -56,4 +57,5 @@ def main():
     save_last_count(current)
 
 main()
+
 
