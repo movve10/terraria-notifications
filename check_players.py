@@ -2,7 +2,7 @@ import socket
 import json
 import os
 import urllib.request
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
 SERVER_IP = "79.127.167.234"
 SERVER_PORT = 11317  # change if needed
@@ -59,6 +59,7 @@ def main():
     save_last_count(current)
 
 main()
+
 
 
 
