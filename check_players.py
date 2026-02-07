@@ -33,8 +33,10 @@ def save_last_count(count):
         json.dump({"count": count}, f)
 
 def notify():
+    local_time = datetime.now(timezone.utc) + timedelta(hours=1)
+
     payload = json.dumps({
-        "content": f"A player joined at {datetime.utcnow()} UTC"
+        "content": f"A player joined at {local_time.strftime('%Y-%m-%d %H:%M:%S')}"
     }).encode("utf-8")
 
     req = urllib.request.Request(
@@ -57,5 +59,6 @@ def main():
     save_last_count(current)
 
 main()
+
 
 
