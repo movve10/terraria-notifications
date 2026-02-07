@@ -39,7 +39,10 @@ def notify():
     req = urllib.request.Request(
         WEBHOOK_URL,
         data=payload,
-        headers={"Content-Type": "application/json"}
+        headers={
+            "Content-Type": "application/json",
+            "User-Agent": "terraria-monitor"
+        }
     )
     urllib.request.urlopen(req)
 
@@ -53,3 +56,4 @@ def main():
     save_last_count(current)
 
 main()
+
